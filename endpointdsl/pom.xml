@@ -113,12 +113,12 @@
             <version>4.9.0</version>
         </dependency>
 
+        <!-- Hawtio -->
         <dependency>
             <groupId>io.hawt</groupId>
             <artifactId>hawtio-springboot</artifactId>
             <version>4.2.0</version>
         </dependency>
-
         <!-- Mandatory for enabling Camel management via JMX / Hawtio -->
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
@@ -128,6 +128,13 @@
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-spring-boot-xml-starter</artifactId>
+        </dependency>
+
+        <!-- YAML DSL -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-yaml-dsl</artifactId>
+            <version>4.9.0</version>
         </dependency>
     </dependencies>
 

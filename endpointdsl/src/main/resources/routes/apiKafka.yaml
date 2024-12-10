@@ -1,0 +1,27 @@
+- route:
+    id: route-e57e
+    from:
+      id: from-b0f6
+      uri: direct
+      parameters:
+        name: apiKafka
+      steps:
+        - log:
+            id: log-afac
+            message: "Calling first API with param: ${header.param}"
+        - toD:
+            id: toD-2a0d
+            uri: >-
+              https://jsonplaceholder.typicode.com/users/${header.param}?connectTimeout=5000&responseTimeout=10000
+        - log:
+            id: log-3be7
+            message: "Response from first API: ${body}"
+        - toD:
+            id: toD-324f
+            uri: >-
+              https://jsonplaceholder.typicode.com/posts/${header.param}?connectTimeout=5000&responseTimeout=10000
+        - to:
+            id: to-b782
+            uri: kafka
+            parameters:
+              topic: my-topic?brokers=localhost:29092

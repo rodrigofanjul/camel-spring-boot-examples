@@ -1,0 +1,25 @@
+- route:
+    id: route-adb0
+    from:
+      id: from-46b6
+      uri: direct
+      parameters:
+        name: combined-api
+      steps:
+        - log:
+            id: log-80f2
+            message: "Calling first API with param: ${header.param}"
+        - toD:
+            id: toD-9a1d
+            uri: >-
+              https://jsonplaceholder.typicode.com/users/${header.param}?connectTimeout=5000&responseTimeout=10000
+        - log:
+            id: log-74c3
+            message: "Response from first API: ${body}"
+        - toD:
+            id: toD-890b
+            uri: >-
+              https://jsonplaceholder.typicode.com/posts/${header.param}?connectTimeout=5000&responseTimeout=10000
+        - log:
+            id: log-81c6
+            message: "Response from second API: ${body}"

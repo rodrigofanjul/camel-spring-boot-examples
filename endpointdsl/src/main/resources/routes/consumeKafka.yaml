@@ -1,0 +1,20 @@
+- route:
+    id: route-f4d9
+    from:
+      id: from-1d47
+      uri: kafka
+      parameters:
+        topic: >-
+          my-topic?brokers=localhost:29092&groupId=my-group&autoOffsetReset=earliest
+      steps:
+        - log:
+            id: log-614a
+            message: "Received message from Kafka: ${body}"
+        - toD:
+            id: toD-d0db
+            uri: >-
+              https://jsonplaceholder.typicode.com/users/${header.param}?connectTimeout=5000&responseTimeout=10000
+        - toD:
+            id: toD-b6f5
+            uri: >-
+              https://jsonplaceholder.typicode.com/posts/${header.param}?connectTimeout=5000&responseTimeout=10000

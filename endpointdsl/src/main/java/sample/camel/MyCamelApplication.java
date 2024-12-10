@@ -16,13 +16,8 @@
  */
 package sample.camel;
 
-import java.util.Map;
-
-import org.apache.camel.LoggingLevel;
-import org.apache.camel.builder.endpoint.LambdaEndpointRouteBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 //CHECKSTYLE:OFF
 /**

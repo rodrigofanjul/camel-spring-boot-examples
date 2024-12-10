@@ -50,6 +50,9 @@ public class RouteBuilder {
                 })
                 .log("Final response (second API): ${body}"); // Log de la respuesta final (solo segunda API)
 
+
+
+
                 // Ruta combinada que maneja ambas APIs y publica en Kafka
                 rb.from(rb.direct("apiKafka"))
                     .log("Calling first API with param: ${header.param}")
@@ -68,6 +71,10 @@ public class RouteBuilder {
                     })
                     .log("Final response (second API): ${body}") // Log de la respuesta final (solo segunda API)
                     .to("kafka:my-topic?brokers=localhost:29092"); // Enviar la respuesta al tópico de Kafka
+
+
+
+                    
 
                 // Ruta combinada que consume de Kafka y llama ambas APIs
                 rb.from("kafka:my-topic?brokers=localhost:29092&groupId=my-group&autoOffsetReset=earliest") // Lee mensajes desde Kafka
